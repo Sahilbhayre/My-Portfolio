@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahil Bhayre | AI/ML Portfolio</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .hover-card { transition: all .3s ease; }
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px -15px rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const Portfolio = () => {
+  const [menu, setMenu] = useState(false);
+
+  const sections = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "education", label: "Education" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "certifications", label: "Certifications" },
+    { id: "contact", label: "Contact" }
+  ];
+
+  const scrollTo = id => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenu(false);
+  };
+
+  return (
+    <div>
+
+{/* NAVBAR */}
+<nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
+  <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+    <div onClick={() => scrollTo("home")} className="font-display text-2xl font-bold cursor-pointer">
+      SB<span className="text-gray-500">.</span>
+    </div>
+    <div className="hidden md:flex gap-8">
+      {sections.map(s => (
+        <button key={s.id} onClick={() => scrollTo(s.id)} className="text-gray-400 hover:text-white">
+          {s.label}
+        </button>
+      ))}
+    </div>
+    <button className="md:hidden" onClick={() => setMenu(!menu)}>
+      <i className={`fas ${menu ? "fa-times" : "fa-bars"}`}></i>
+    </button>
+  </div>
+
+  {menu && (
+    <div className="md:hidden bg-zinc-900 border-t border-white/10">
+      {sections.map(s => (
+        <button key={s.id} onClick={() => scrollTo(s.id)} className="block w-full px-6 py-3 text-left text-gray-400 hover:text-white">
+          {s.label}
+        </button>
+      ))}
+    </div>
+  )}
+</nav>
+
+{/* HERO */}
+<section id="home" className="min-h-screen flex items-center justify-center px-6 text-center">
+  <div>
+    <p className="text-gray-500 mb-4 font-mono">Hello, I'm</p>
+    <h1 className="font-display text-6xl md:text-8xl font-bold mb-6">
+      Sahil <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">Bhayre</span>
+    </h1>
+    <p className="text-xl md:text-2xl text-gray-400 mb-10">
+      B.Tech CSE (AI/ML) Student | UIET'28 | Passionate about ML
+    </p>
+
+    <div className="flex justify-center gap-6 mb-12">
+      <button onClick={() => scrollTo("contact")} className="px-10 py-3 bg-white text-black rounded-full font-semibold">
+        Get in Touch
+      </button>
+      <button onClick={() => scrollTo("about")} className="px-10 py-3 border border-white/20 rounded-full">
+        View Profile
+      </button>
+      
+      <a
+    href="assets/Sahil Bhayre_Resume.pdf"
+    download
+    className="px-10 py-3 border border-white/20 rounded-full hover:bg-white/5 transition"
+  >
+    Download Resume
+  </a>
+    </div>
+
+    <div className="flex justify-center gap-8 text-2xl text-gray-500">
+      <a href="https://linkedin.com/in/sahil-bhayre-b2029b238/" target="_blank"><i className="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Sahilbhayre" target="_blank"><i className="fab fa-github"></i></a>
+      <a href="mailto:sahilbhayre93@gmail.com"><i className="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</section>
+
+{/* ABOUT */}
+<section id="about" className="py-24 px-6 bg-zinc-950">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="font-display text-4xl md:text-5xl font-bold mb-12">About Me</h2>
+    <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-12 hover-card">
+      <p className="text-lg text-gray-300 mb-10">
+        Hi, I’m <span className="text-white font-medium">Sahil</span>, an AI & Machine Learning student
+        focused on data analysis and AI-powered applications using Python and ML techniques.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div><div className="text-3xl font-bold">2028</div><div className="text-sm text-gray-500">Graduation</div></div>
+        <div className="border-x border-white/10"><div className="text-3xl font-bold">Maharshi Dayanand</div><div className="text-sm text-gray-500">University</div></div>
+        <div><div className="text-3xl font-bold">2+</div><div className="text-sm text-gray-500">Projects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* EDUCATION */}
+<section id="education" className="py-24 px-6">
+  <div className="max-w-4xl mx-auto">
+
+    <h2 className="font-display text-4xl md:text-5xl font-bold mb-12 text-center">
+      Education
+    </h2>
+
+    <div className="bg-zinc-900/30 border border-white/10 rounded-2xl p-10 hover-card relative overflow-hidden">
+
+      <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              Bachelor of Technology
+            </h3>
+            <p className="text-lg text-gray-400">
+              Computer Science (Specialization in AI/ML)
+            </p>
+          </div>
+          <span className="mt-2 md:mt-0 px-4 py-1 bg-white/10 rounded-full text-sm font-mono text-gray-300">
+            2024 – Present
+          </span>
+        </div>
+
+        <p className="text-gray-500 mb-4">
+          University Institute of Engineering & Technology (UIET),  
+          Maharshi Dayanand University (MDU), Rohtak
+        </p>
+
+        <div className="flex items-center gap-6 text-sm text-gray-400">
+          <span className="flex items-center gap-2">
+            <i className="fas fa-chart-line"></i>
+            CGPA: 7.5 / 10
+          </span>
+          <span className="flex items-center gap-2">
+            <i className="fas fa-map-marker-alt"></i>
+            Rohtak, Haryana, India
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{/* SKILLS */}
+<section id="skills" className="py-24 px-6 bg-black">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Heading */}
+    <h2 className="font-display text-4xl md:text-5xl font-bold text-center mb-16">
+      Skills & Expertise
+    </h2>
+
+    {/* Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* Programming Languages */}
+      <div className="bg-zinc-900/40 border border-white/10 rounded-2xl p-8 hover-card">
+        <div className="flex items-center gap-3 mb-6">
+          <i className="fas fa-code text-xl"></i>
+          <h3 className="text-xl font-bold">Programming Languages</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {["Python", "C", "C++"].map(skill => (
+            <span
+              key={skill}
+              className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Frontend */}
+      <div className="bg-zinc-900/40 border border-white/10 rounded-2xl p-8 hover-card">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-2xl">&lt;/&gt;</span>
+          <h3 className="text-xl font-bold">Frontend</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {["HTML", "CSS", "JavaScript(Basic Level)"].map(skill => (
+            <span key={skill} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Libraries */}
+      <div className="bg-zinc-900/40 border border-white/10 rounded-2xl p-8 hover-card">
+        <div className="flex items-center gap-3 mb-6">
+          <i className="fas fa-layer-group text-xl"></i>
+          <h3 className="text-xl font-bold">Libraries</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {["NumPy", "Pandas", "Matplotlib", "Seaborn"].map(skill => (
+            <span key={skill} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Database */}
+      <div className="bg-zinc-900/40 border border-white/10 rounded-2xl p-8 hover-card">
+        <div className="flex items-center gap-3 mb-6">
+          <i className="fas fa-database text-xl"></i>
+          <h3 className="text-xl font-bold">Database</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {["MySQL"].map(skill => (
+            <span key={skill} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Tools */}
+      <div className="bg-zinc-900/40 border border-white/10 rounded-2xl p-8 hover-card">
+        <div className="flex items-center gap-3 mb-6">
+          <i className="fas fa-tools text-xl"></i>
+          <h3 className="text-xl font-bold">Tools</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {["Git", "GitHub", "VS Code", "Kaggle"].map(skill => (
+            <span key={skill} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{/* PROJECTS */}
+<section id="projects" className="py-24 px-6">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="font-display text-4xl font-bold text-center mb-12">Projects</h2>
+    <div className="space-y-8">
+      <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-10 hover-card">
+        <h3 className="text-2xl font-bold mb-2">Sales Data Analysis</h3>
+        <p className="text-gray-400 mb-4">EDA using Pandas & Matplotlib on Kaggle data.</p>
+        <a href="https://github.com/Sahilbhayre/sales-data-analysis" target="_blank" className="underline">View on GitHub →</a>
+      </div>
+      <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-10 hover-card">
+        <h3 className="text-2xl font-bold mb-2">AI-Powered PDF Assistant</h3>
+        <p className="text-gray-400 mb-4">NLP-based system to query PDF documents.</p>
+        <a href="https://github.com/Sahilbhayre/AI-Powered-PDF-Assistant" target="_blank" className="underline">View on GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* CERTIFICATIONS */}
+<section id="certifications" className="py-24 px-6 bg-zinc-950">
+  <div className="max-w-4xl mx-auto">
+
+    <h2 className="font-display text-4xl md:text-5xl font-bold text-center mb-12">
+      Certifications
+    </h2>
+
+    <div className="space-y-4">
+
+      {[
+        { name: "Python 101 for Data Science", org: "IBM", year: "2025" },
+        { name: "Introduction to NumPy", org: "Simplilearn", year: "2025" },
+        { name: "Pandas", org: "Kaggle", year: "2025" },
+        { name: "Problem Solving", org: "HackerRank", year: "2025" },
+        { name: "Data Visualization", org: "Kaggle", year: "2025" },
+        { name: "Participating in Simplify Hackathon", org: "Simplify AI Tools", year: "2025" }
+      ].map((cert, index) => (
+        <div
+          key={index}
+          className="flex items-center justify-between p-6 bg-zinc-900/40 border border-white/10 rounded-xl hover-card"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+              <i className="fas fa-certificate text-white/80"></i>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white">
+                {cert.name}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {cert.org}
+              </p>
+            </div>
+          </div>
+
+          <span className="text-sm font-mono text-gray-500">
+            {cert.year}
+          </span>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+
+{/* CONTACT */}
+<section id="contact" className="py-24 px-6">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">Let’s Connect</h2>
+    <p className="text-gray-400 mb-12">Open to internships and collaboration opportunities</p>
+    <div className="grid md:grid-cols-3 gap-8">
+      <a href="mailto:sahilbhayre93@gmail.com" className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 hover-card">
+        <i className="fas fa-envelope text-3xl mb-4"></i>
+        <p>sahilbhayre93@gmail.com</p>
+      </a>
+      <a href="https://github.com/Sahilbhayre" target="_blank" className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 hover-card">
+        <i className="fab fa-github text-3xl mb-4"></i>
+        <p>GitHub</p>
+      </a>
+      <a href="https://linkedin.com/in/sahil-bhayre-b2029b238/" target="_blank" className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 hover-card">
+        <i className="fab fa-linkedin text-3xl mb-4"></i>
+        <p>LinkedIn</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer className="py-6 text-center text-gray-600 border-t border-white/10">
+  © 2026 Sahil Bhayre
+</footer>
+
+</div>
+);
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Portfolio />);
+</script>
+</body>
+</html>
