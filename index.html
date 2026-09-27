@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="sYfa6_0aAgzFIXHTX_z9PJeLiOQZbgLo30OhxqkscX8" />
   <title>Sahil Bhayre | AI/ML Portfolio</title>
 
   <!-- Tailwind -->
@@ -222,7 +221,7 @@ const Portfolio = () => {
 
         <div className="py-4">
           <div className="text-4xl font-bold mb-2">
-            5+
+            7
           </div>
 
           <div className="text-gray-500">
@@ -635,6 +634,123 @@ const Portfolio = () => {
           </a>
         </div>
       </div>
+
+{/* House Price Prediction */}
+
+<div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-8 hover-card flex flex-col">
+
+  <h3 className="text-2xl font-bold mb-4">
+    House Price Prediction
+  </h3>
+
+  <p className="text-gray-400 leading-relaxed mb-6">
+    Machine Learning regression application that predicts house prices
+    using the Ames Housing Dataset with data preprocessing, feature
+    engineering, model comparison, and hyperparameter tuning.
+  </p>
+
+  <div className="flex flex-wrap gap-2 mb-6">
+    {[
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "XGBoost",
+      "Regression",
+      "Streamlit"
+    ].map(skill => (
+      <span
+        key={skill}
+        className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300"
+      >
+        {skill}
+      </span>
+    ))}
+  </div>
+
+  <div className="mt-auto flex gap-4">
+
+    <a
+      href="https://github.com/Sahilbhayre/House-Price-Prediction"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-white/10 hover:bg-white hover:text-black transition"
+    >
+      <i className="fab fa-github"></i>
+      GitHub
+    </a>
+
+    <a
+      href="https://house-price-prediction-sahil-bhayre.streamlit.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white text-black hover:bg-gray-200 transition"
+    >
+      <i className="fas fa-arrow-up-right-from-square"></i>
+      Live Demo
+    </a>
+
+  </div>
+
+</div>
+
+
+{/* Heart Disease Prediction */}
+
+<div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-8 hover-card flex flex-col">
+
+  <h3 className="text-2xl font-bold mb-4">
+    Heart Disease Prediction
+  </h3>
+
+  <p className="text-gray-400 leading-relaxed mb-6">
+    Machine Learning classification application that predicts the
+    presence of heart disease using clinical data with multiple
+    classification models and model evaluation.
+  </p>
+
+  <div className="flex flex-wrap gap-2 mb-6">
+    {[
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "XGBoost",
+      "Classification",
+      "Streamlit"
+    ].map(skill => (
+      <span
+        key={skill}
+        className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300"
+      >
+        {skill}
+      </span>
+    ))}
+  </div>
+
+  <div className="mt-auto flex gap-4">
+
+    <a
+      href="https://github.com/Sahilbhayre/Heart-Disease-Prediction"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-white/10 hover:bg-white hover:text-black transition"
+    >
+      <i className="fab fa-github"></i>
+      GitHub
+    </a>
+
+    <a
+      href="https://heart-disease-prediction-by-sahil-bhayre.streamlit.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white text-black hover:bg-gray-200 transition"
+    >
+      <i className="fas fa-arrow-up-right-from-square"></i>
+      Live Demo
+    </a>
+
+  </div>
+
+</div>
 
       {/* Personal Meal Assistant */}
       <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-8 hover-card flex flex-col">
